@@ -1,100 +1,251 @@
 <html>
-   <head>
-      <title>Calendar</title>
-      <link rel="stylesheet" href="style.css">
-      <header>
-         <h1>Dr. Smith's Chiropractic Practice</h1>
-         <nav>
+
+<head>
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <header>
+    <a href="index.html">
+        <img src="spine.png" id="spine">
+    </a>
+        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <nav>
             <ul>
-               <li><a href="about.html">About Us</a></li>
-               <li><a href="services.html">Services</a></li>
-               <li><a href="info.html">Patient Information</a></li>
-               <li><a href="index.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="info.html">Patient Information</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+                 <li><a href="shop.html">Shop</a></li>
             </ul>
-         </nav>
-      </header>
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body>
-      <header>
-         <h1>Calendar</h1>
-      </header>
-      <main>
-         <section id="calendar">
-            <h2>March 2023</h2>
-            <table>
-               <thead>
-                  <tr>
-                     <th>Sun</th>
-                     <th>Mon</th>
-                     <th>Tue</th>
-                     <th>Wed</th>
-                     <th>Thu</th>
-                     <th>Fri</th>
-                     <th>Sat</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td>1</td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>3</td>
-                     <td>4</td>
-                     <td>5</td>
-                     <td>6</td>
-                     <td>7</td>
-                     <td>8</td>
-                  </tr>
-                  <tr>
-                     <td>9</td>
-                     <td>10</td>
-                     <td>11</td>
-                     <td>12</td>
-                     <td>13</td>
-                     <td>14</td>
-                     <td>15</td>
-                  </tr>
-                  <tr>
-                     <td>16</td>
-                     <td>17</td>
-                     <td>18</td>
-                     <td>19</td>
-                     <td>20</td>
-                     <td>21</td>
-                     <td>22</td>
-                  </tr>
-                  <tr>
-                     <td>23</td>
-                     <td>24</td>
-                     <td>25</td>
-                     <td>26</td>
-                     <td>27</td>
-                     <td>28</td>
-                     <td>29</td>
-                  </tr>
-                  <tr>
-                     <td>30</td>
-                     <td>31</td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                  </tr>
-               </tbody>
-            </table>
-         </section>
-      </main>
-      <footer>
-         <p>&copy; 2023 Calendar</p>
-      </footer>
-   </body>
+        </nav>
+    </header>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Import Google font - Poppins */
+
+        .wrapper {
+            width: 450px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper header {
+            display: flex;
+            align-items: center;
+            padding: 25px 30px 10px;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        header .icons {
+            display: flex;
+        }
+
+        header .icons span {
+            height: 38px;
+            width: 38px;
+            margin: 0 1px;
+            cursor: pointer;
+            color: #878787;
+            text-align: center;
+            line-height: 38px;
+            font-size: 1.9rem;
+            user-select: none;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            transition: all 0.2s ease-in-out;
+        }
+
+        header .icons span:hover {
+            background-color: #d9d9d9;
+        }
+
+        .left-arrow:before {
+            content: "\\2190";
+        }
+
+        .right-arrow:before {
+            content: "\\2192";
+        }
+
+        .calendar {
+            padding: 20px;
+        }
+
+        .calendar ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            text-align: center;
+        }
+
+        .calendar .days {
+            margin-bottom: 20px;
+        }
+
+        .calendar li {
+            color: #333;
+            width: calc(100% / 7);
+            font-size: 1.07rem;
+        }
+
+        .calendar .weeks li {
+            font-weight: 500;
+            cursor: default;
+        }
+
+        .calendar .days li {
+            z-index: 1;
+            cursor: pointer;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .days li.inactive {
+            color: #aaa;
+        }
+
+        .days li.active {
+            color: #fff;
+        }
+
+        .days li::before {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: 50%;
+            height: 40px;
+            width: 40px;
+            z-index: -1;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .days li.active::before {
+            background: #9B59B6;
+        }
+
+        .days li:not(.active):hover::before {
+            background: #f2f2f2;
+        }
+        .material-symbols-rounded {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   background-color: #333;
+   border-radius: 50%;
+   color: #fff;
+   text-align: center;
+   line-height: 40px;
+   font-size: 1.2rem;
+}
+
+
+    </style>
+</head>
+
+<body>
+   
+   
+   <br><br>
+    <div class="wrapper">
+        <p class="current-date"></p>
+        <div class="icons">
+            <span id="prev" class="material-symbols-rounded">←</span>
+            <span id="next" class="material-symbols-rounded">→</span>
+        </div>
+
+        <div class="calendar">
+            <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul class="days"></ul>
+        </div>
+    </div>
+            <br><br>
+    <footer>
+        <p>&copy; 2023 Calendar</p>
+    </footer>
+</body>
+
+<script>
+    /*eslint-env es6*/
+    /*eslint-env browser*/
+    const daysTag = document.querySelector(".days");
+    const currentDate = document.querySelector(".current-date");
+    const prevNextIcon = document.querySelectorAll(".icons span");
+
+
+    // getting new date, current year and month
+    let date = new Date(),
+        currYear = date.getFullYear(),
+        currMonth = date.getMonth();
+
+    // storing full name of all months in array
+    const months = ["January", "February", "March", "April", "May", "June", "July",
+        "August", "September", "October", "November", "December"
+    ];
+
+    const renderCalendar = () => {
+        let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+            lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+            lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+            lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+        let liTag = "";
+
+        for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+            liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+        }
+
+        for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+            // adding active class to li if the current day, month, and year matched
+            let isToday = i === date.getDate() && currMonth === new Date().getMonth() &&
+                currYear === new Date().getFullYear() ? "active" : "";
+            liTag += `<li class="${isToday}">${i}</li>`;
+        }
+
+        for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+            liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+        }
+        currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+        daysTag.innerHTML = liTag;
+    }
+ 
+    renderCalendar();
+    
+
+
+    prevNextIcon.forEach(icon => { // getting prev and next icons
+        icon.addEventListener("click", () => { // adding click event on both icons
+            // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+            currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+            if (currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+                // creating a new date of current year & month and pass it as date value
+                date = new Date(currYear, currMonth, new Date().getDate());
+                currYear = date.getFullYear(); // updating current year with new date year
+                currMonth = date.getMonth(); // updating current month with new date month
+            } else {
+                date = new Date(); // pass the current date as date value
+            }
+            renderCalendar(); // calling renderCalendar function
+        });
+    });
+    
+        // function to handle click events on calendar days
+   
+
+</script>
+
 </html>

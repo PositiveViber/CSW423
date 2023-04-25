@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login - Dr. Smith's Chiropractic Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="spine.png" id="spine">
+        </a>
+        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <nav>
+            <ul>
+               <li><a href="about.html">About Us</a></li>
+               <li><a href="services.html">Services</a></li>
+               <li><a href="info.html">Patient Information</a></li>
+               <li><a href="index.html">Contact Us</a></li>
+                                <li><a href="shop.html">Shop</a></li>
+            </ul>
+         </nav>
+    </header>
+    <section id="admin-login">
+        <h3>Admin Login</h3>
+        <form onsubmit="return login()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
+    </footer>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "admin" && password === "sunflowerduck") {
+                alert("Login successful!");
+                return true;
+            } else {
+                alert("Invalid username or password. Please try again.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,44 +1,194 @@
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Login - Dr. Smith's Chiropractic Practice</title>
     <link rel="stylesheet" href="style.css">
-     <header>
-         <h1>Dr. Smith's Chiropractic Practice</h1>
-         <nav>
-            <ul>
-               <li><a href="about.html">About Us</a></li>
-               <li><a href="services.html">Services</a></li>
-               <li><a href="info.html">Patient Information</a></li>
-               <li><a href="index.html">Contact Us</a></li>
-            </ul>
-         </nav>
-      </header>
+    <link rel="stylesheet" href="darkmode.css" id="dark-mode">
 </head>
+
 <body>
+    <style>
+        #patient-info {
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            width: 400px;
+        }
+
+        #patient-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        #patient-info label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        #patient-info input[type="text"],
+        #patient-info input[type="email"],
+        #patient-info input[type="tel"],
+        #patient-info input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #f2f2f2;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        #patient-info input[type="submit"] {
+            background-color: #9B59B6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #edit-btn {
+            background-color: #9B59B6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            padding: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            float: right;
+        }
+
+        #edit-btn:hover {
+            background-color: #8e44ad;
+        }
+
+        #edit-btn:active {
+            transform: translateY(2px);
+        }
+
+        #patient-info input[type="submit"]:hover {
+            background-color: #8e44ad;
+        }
+
+        #patient-info input[type="submit"]:active {
+            transform: translateY(2px);
+        }
+
+        #patient-info input[type="submit"]+a {
+            display: inline-block;
+            margin-left: 10px;
+            color: #555;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #patient-info input[type="submit"]+a:hover {
+            color: #000;
+        }
+    </style>
+    <header>
+        <a href="index.html">
+            <img src="spine.png" id="spine">
+        </a>
+        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="info.html">Patient Information</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
     <section id="patient-info">
-   <h3>Patient Information</h3>
-   <form>
-      <label for="first_name">First Name:</label>
-      <input type="text" id="first_name" name="first_name">
-      <br>
-      <label for="last_name">Last Name:</label>
-      <input type="text" id="last_name" name="last_name">
-      <br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
-      <br>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone">
-      <br>
-      <label for="birthdate">Birthdate:</label>
-      <input type="date" id="birthdate" name="birthdate">
-      <br>
-      <input type="submit" value="Save">
-   </form>
-</section>
-</body>
-      <footer>
-         <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
-      </footer>
-</html>
+        <h3>Patient Information</h3>
+        <form onsubmit="return checkForm()">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required disabled>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required disabled>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required disabled>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required disabled>
+            <br>
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" required disabled>
+            <br>
+            <input type="submit" value="Save">
+            <button id="edit-btn" onclick="toggleFields()">Edit</button>
+            <button id="edit-btn" onclick="clearLocalStorage()">Delete</button>
+        </form>
+
+    </section>
+    <footer>
+        <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
+    </footer>
+    <script>
+        var patientInfo = JSON.parse(localStorage.getItem("patientInfo"));
+
+        // populate form fields with patient info
+        document.getElementById("first_name").value = patientInfo.firstName;
+        document.getElementById("last_name").value = patientInfo.lastName;
+        document.getElementById("email").value = patientInfo.email;
+        document.getElementById("phone").value = patientInfo.phone;
+        document.getElementById("birthdate").value = patientInfo.birthdate;
+
+
+        //RUN THIS THROUGH A FOR LOOP 
+        function toggleFields() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].type === "text" || inputs[i].type === "email" || inputs[i].type === "tel" || inputs[i].type === "date") {
+                    inputs[i].disabled = !inputs[i].disabled;
+                }
+            }
+        }
+
+        function checkForm() {
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var birthdate = document.getElementById("birthdate").value;
+
+            // save patient information to localStorage
+            patientInfo = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                birthdate: birthdate
+            };
+
+            localStorage.setItem("patientInfo", JSON.stringify(patientInfo));
+
+
+
+            return false;
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+            document.getElementById('first_name').value = '';
+            document.getElementById('last_name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('birthdate').value = '';
+        }
+    </script>

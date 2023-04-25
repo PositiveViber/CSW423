@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment - Dr. Smith's Chiropractic Practice</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <style>
+      form {
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  width: 400px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #9B59B6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #8e44ad;
+}
+
+input[type="submit"]:active {
+  transform: translateY(2px);
+}
+
+input[type="submit"] + a {
+  display: inline-block;
+  margin-left: 10px;
+  color: #555;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="submit"] + a:hover {
+  color: #000;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+    <a href="index.html">
+        <img src="spine.png" id="spine">
+    </a>
+        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="info.html">Patient Information</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="book-appointment">
+
+        <form>
+                   <h2>Book an Appointment</h2>
+            <label for="appointment_date">Appointment Date:</label>
+            <input type="date" id="appointment_date" name="appointment_date" required>
+            <br>
+            <label for="appointment_time">Appointment Time:</label>
+            <input tyoe="time" id="appointment_time" name="appointment_time" required step="1800">
+            <br><br><br>
+            <input type="submit" value="Book Appointment">
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
+    </footer>
+</body>
+</html>
+
+
+<script>
+
+</script>
