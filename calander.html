@@ -2,9 +2,27 @@
 
 <head>
     <title>Calendar</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="style.css" id="light-mode">
+    </head>
+      <script>
+    // Retrieve the mode from local storage (default to "light" if not set)
+    var mode = localStorage.getItem("mode") || "light";
+    var lightMode = document.getElementById("light-mode");
+    var darkMode = document.getElementById("dark-mode");
+
+    // Apply the selected mode to the page
+    if (mode === "light") {
+      lightMode.disabled = false;
+      darkMode.disabled = true;
+    } else {
+      lightMode.disabled = true;
+      darkMode.disabled = false;
+    }
+  </script>
     <header>
+    
+    
     <a href="index.html">
         <img src="spine.png" id="spine">
     </a>
@@ -21,8 +39,6 @@
     </header>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Import Google font - Poppins */
-
         .wrapper {
             width: 450px;
             background: #fff;
@@ -74,7 +90,9 @@
         }
 
         .calendar {
+            font-family: "Roboto";
             padding: 20px;
+            margin-right:40px;
         }
 
         .calendar ul {
@@ -145,9 +163,8 @@
    font-size: 1.2rem;
 }
 
-
     </style>
-</head>
+
 
 <body>
    

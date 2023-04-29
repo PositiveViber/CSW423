@@ -1,38 +1,61 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="style.css" id="light-mode">
     <meta charset="UTF-8">
     <title>About</title>
+          <script>
+    // Retrieve the mode from local storage (default to "light" if not set)
+    var mode = localStorage.getItem("mode") || "light";
+    var lightMode = document.getElementById("light-mode");
+    var darkMode = document.getElementById("dark-mode");
+
+    // Apply the selected mode to the page
+    if (mode === "light") {
+      lightMode.disabled = false;
+      darkMode.disabled = true;
+    } else {
+      lightMode.disabled = true;
+      darkMode.disabled = false;
+    }
+  </script>
 </head>
 <header>
     <a href="index.html">
         <img src="spine.png" id="spine">
     </a>
     <h1>Dr. Smith's Chiropractic Practice</h1>
-    <nav>
-        <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="info.html">Patient Information</a></li>
-            <li><a href="index.html">Contact Us</a></li>
-            
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="info.html">Patient Information</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+        </nav>
 </header>
 
+
 <body>
-    <section id="about">
-        <h3>About Us</h3>
-        <p>Dr. Smith is a highly experienced chiropractor with over 20 years of experience helping patients achieve optimal health. Our team at Dr. Smith's Chiropractic Practice is dedicated to providing personalized care using cutting-edge techniques to improve your quality of life.</p>
-        <h4>Our Mission</h4>
-        <p>Our mission is to help patients achieve optimal health through personalized chiropractic care and education on the importance of maintaining a healthy lifestyle.</p>
-        <h4>Our Approach</h4>
-        <p>We believe in a holistic approach to healthcare, addressing not only the symptoms but the underlying causes of your health issues. We take the time to listen to your concerns and develop a personalized treatment plan that is tailored to your individual needs.</p>
-        <h4>Our Services</h4>
-        <p>We offer a wide range of chiropractic services, including spinal adjustments, massage therapy, rehabilitation exercises, and more. We also provide education on proper nutrition and exercise to help you maintain a healthy lifestyle.</p>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Dr. Smith's Chiropractic Practice, where we are committed to helping you achieve optimal health and wellness. With over 20 years of experience, Dr. Smith and our team of dedicated professionals offer personalized chiropractic care using state-of-the-art techniques to help you reach your health goals.</p>
+    <h3>Our Mission</h3>
+    <p>Our mission is to provide comprehensive chiropractic care that addresses the root causes of your health concerns. We strive to empower our patients with the knowledge and tools to take an active role in their health and wellbeing.</p>
+    <h3>Our Approach</h3>
+    <p>We take a holistic approach to healthcare, focusing on the whole person rather than just their symptoms. By understanding your unique needs and goals, we develop customized treatment plans that combine chiropractic care, massage therapy, rehabilitation exercises, and lifestyle modifications to promote healing and prevent future injury.</p>
+    <h3>Our Services</h3>
+    <p>We offer a wide range of services to help you achieve optimal health and wellness, including:</p>
+    <ul>
+      <li>Chiropractic adjustments</li>
+      <li>Massage therapy</li>
+      <li>Physical therapy</li>
+      <li>Nutrition counseling</li>
+      <li>Exercise and lifestyle coaching</li>
+    </ul>
+  </section>
 </body>
 
 <footer>

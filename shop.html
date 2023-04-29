@@ -2,8 +2,23 @@
    <head>
       <meta charset="UTF-8">
       <title>Dr. Smith's Chiropractic Practice - Shop</title>
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="style.css" id="light-mode">
+        <script>
+    // Retrieve the mode from local storage (default to "light" if not set)
+    var mode = localStorage.getItem("mode") || "light";
+    var lightMode = document.getElementById("light-mode");
+    var darkMode = document.getElementById("dark-mode");
+
+    // Apply the selected mode to the page
+    if (mode === "light") {
+      lightMode.disabled = false;
+      darkMode.disabled = true;
+    } else {
+      lightMode.disabled = true;
+      darkMode.disabled = false;
+    }
+  </script>
 
       <style>
          /* CSS code for modal */
@@ -100,7 +115,50 @@ animation: modal-bounce-in 0.5s ease-out forwards;
    from {opacity: 1;}
    to {opacity: 0;}
 }
-      </style>
+          nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.add-to-cart {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
+
+</style>
    </head>
    <header>
     <a href="index.html">
@@ -119,44 +177,91 @@ animation: modal-bounce-in 0.5s ease-out forwards;
    </header>
    <body>
 <section id="shop">
-<nav>
-		<ul>
-			<li><a href="#medications">Medications</a></li>
-			<li><a href="#exercise-equipment">Exercise Equipment</a></li>
-			<li><a href="#supplements">Supplements</a></li>
-		</ul>
-	</nav>
-
-	<section id="medications">
-		<h2>Medications</h2>
-		<ul>
-			<li>Medication 1</li>
-			<li>Medication 2</li>
-			<li>Medication 3</li>
-			<li>Medication 4</li>
-		</ul>
-	</section>
-
-	<section id="exercise-equipment">
-		<h2>Exercise Equipment</h2>
-		<ul>
-			<li>Exercise Equipment 1</li>
-			<li>Exercise Equipment 2</li>
-			<li>Exercise Equipment 3</li>
-			<li>Exercise Equipment 4</li>
-		</ul>
-	</section>
-
-	<section id="supplements">
-		<h2>Supplements</h2>
-		<ul>
-			<li>Supplement 1</li>
-			<li>Supplement 2</li>
-			<li>Supplement 3</li>
-			<li>Supplement 4</li>
-		</ul>
-	</section>
-</section>
+  <nav>
+    <ul>
+      <li><a href="#medications">Medications</a></li>
+      <li><a href="#exercise-equipment">Exercise Equipment</a></li>
+      <li><a href="#supplements">Supplements</a></li>
+      <li style="float:right"><a href="#" onclick="openCart()">Cart <span id="cart-count">(0)</span></a></li>
+    </ul>
+  </nav>
+  <br>
+  <section id="medications">
+    <h2>Medications</h2>
+    <ul>
+      <li>
+        <h3>Ibuprofen</h3>
+        <p> Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used to reduce fever and treat pain or inflammation caused by many conditions such as headache, toothache, back pain, arthritis, menstrual cramps, or minor injury.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Tums antacid tablets, assorted flavors</h3>
+        <p> Tums antacid tablets are chewable tablets that provide fast relief from heartburn, sour stomach, acid indigestion, and upset stomach. They come in assorted fruit flavors and are easy to take on-the-go.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Claritin allergy relief tablets</h3>
+        <p> Claritin allergy relief tablets are non-drowsy tablets that provide relief from common allergy symptoms such as sneezing, runny nose, itchy/watery eyes, and itchy throat or nose. They work by blocking histamine, a substance produced by the body that causes allergic symptoms.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Nicotine gum</h3>
+        <p> Nicotine gum is a type of chewing gum that contains nicotine, a chemical that is found in tobacco. It is used as an aid to help people quit smoking by reducing the cravings and withdrawal symptoms associated with quitting.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+    </ul>
+  </section>
+  <section id="exercise-equipment">
+    <h2>Exercise Equipment</h2>
+    <ul>
+      <li>
+        <h3>Resistance bands</h3>
+        <p> Resistance bands are elastic bands used for strength training and physical therapy. They come in different resistance levels and can be used for a variety of exercises targeting different muscle groups.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Yoga mat</h3>
+        <p> A yoga mat is a cushioned mat used for practicing yoga or other exercises. It provides a stable and comfortable surface for yoga poses and helps prevent slipping and sliding during practice.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Adjustable dumbbell set</h3>
+        <p>An adjustable dumbbell set is a set of dumbbells that can be adjusted to different weights by adding or removing weight plates. It is a versatile and space-saving equipment for strength training at home.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Indoor cycling bike with LCD display and adjustable resistance</h3>
+        <p> An indoor cycling bike is a stationary bike designed for indoor use. It provides a low-impact cardiovascular workout and can be adjusted for different resistance levels to simulate uphill or downhill riding. The LCD display shows the speed, distance, time, and calories burned during the workout.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+    </ul>
+  </section>
+  <section id="supplements">
+    <h2>Supplements</h2>
+    <ul>
+      <li>
+        <h3>Multivitamin for women/men</h3>
+        <p>A multivitamin is a dietary supplement that contains a combination of vitamins and minerals to help support overall health and well-being. Multivitamins for women/men are specifically formulated to meet the nutritional needs of women/men.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Fish oil capsules</h3>
+        <p>Fish oil capsules are dietary supplements that contain omega-3 fatty acids, which are essential nutrients for good health. They are derived from fatty fish and are known to help support heart, brain, and joint health.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+        <h3>Protein powder, vanilla or chocolate flavor</h3>
+        <p>Protein powder is a dietary supplement that contains protein, a macronutrient important for building and repairing muscle tissue. It comes in different flavors and can be mixed with water, milk, or other beverages to make a protein shake or smoothie.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+      <li>
+      <h3>Plant-based protein powder, vanilla or chocolate flavor</h3>
+        <p>Plant-based protein powder is a type of protein powder made from plant sources such as peas, brown rice, or soybeans. It is a vegan-friendly alternative to whey protein and is known to be easily digestible and good for gut health.</p>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+      </li>
+    </ul>
+  </section>       
+  </section>
 <div id="modal" class="modal">
     <section id="patient-info">
         <h3>Patient Information</h3>
@@ -180,10 +285,21 @@ animation: modal-bounce-in 0.5s ease-out forwards;
         </form>
     </section>
 </div>
+
+       <div id="cart-modal" class="modal">
+  <section id="cart-info">
+    <h3>Cart</h3>
+    <ul id="cart-items"></ul>
+    <button onclick="closeCart()">Close</button>
+  </section>
+</div>
+
 </body>
 <footer>
     <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
 </footer>
+
+
 <script>
     
 function openModal() {
@@ -237,27 +353,54 @@ function closeModal() {
     document.getElementById("modal").style.display = "none";
     return true;
 }
-    // function to filter items based on category
-		function filterItems(category) {
-			const items = document.querySelectorAll('section');
-			items.forEach(item => {
-				if (item.id !== category) {
-					item.style.display = 'none';
-				} else {
-					item.style.display = 'block';
-				}
-			});
-		}
-
-		// add event listeners to nav links
-		const navLinks = document.querySelectorAll('nav a');
-		navLinks.forEach(link => {
-			link.addEventListener('click', (event) => {
-				event.preventDefault();
-				filterItems(link.getAttribute('href').slice(1));
-			});
-		});
 
 </script>
+<script>
+    
+    
+        // function to filter items based on category
+    
+var cart = []; // initialize empty cart array
+
+function addItemToCart(item) {
+    cart.push(item); // add item to cart array
+    updateCartCount(); // update cart count
+}
+
+function updateCartCount() {
+    var count = cart.length;
+    document.getElementById("cart-count").innerHTML = "(" + count + ")"; // update cart count display
+}
+
+function openCart() {
+    var cartItems = ""; // initialize empty cart items string
+    if (cart.length > 0) {
+        // loop through cart items and add to string
+        for (var i = 0; i < cart.length; i++) {
+            cartItems += "<li>" + cart[i] + "</li>";//create list item for modal
+        }
+    } else {
+        cartItems = "<li>Your cart is empty.</li>"; //empty cart modal
+    }
+    // display cart items in modal
+    document.getElementById("cart-items").innerHTML = cartItems;
+    document.getElementById("cart-modal").style.display = "block";
+}
+
+function closeCart() {
+    document.getElementById("cart-modal").style.display = "none";
+}
+
+// add event listeners to "Add to Cart" buttons
+var addToCartButtons = document.querySelectorAll(".add-to-cart");
+for (var i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener("click", function(e) {
+        e.preventDefault(); // prevent default form submission behavior
+        var itemName = e.target.parentNode.getElementsByTagName("h3")[0].innerHTML; // get item name from heading
+        addItemToCart(itemName); // add item to cart
+        alert(itemName + " added to cart."); // show confirmation message
+    });
+}
+    </script>
 
 </html>

@@ -1,8 +1,23 @@
 <html>
    <head>
       <title>Dr. Smith's Chiropractic Practice - Exercise Library</title>
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <link rel="stylesheet" href="style.css" id="light-mode">
+      <script>
+    // Retrieve the mode from local storage (default to "light" if not set)
+    var mode = localStorage.getItem("mode") || "light";
+    var lightMode = document.getElementById("light-mode");
+    var darkMode = document.getElementById("dark-mode");
+
+    // Apply the selected mode to the page
+    if (mode === "light") {
+      lightMode.disabled = false;
+      darkMode.disabled = true;
+    } else {
+      lightMode.disabled = true;
+      darkMode.disabled = false;
+    }
+  </script>
    </head>
    <body>
       <header>
@@ -12,11 +27,11 @@
          <h1>Dr. Smith's Chiropractic Practice</h1>
          <nav>
             <ul>
-               <li><a href="about.html">About Us</a></li>
-               <li><a href="services.html">Services</a></li>
-               <li><a href="info.html">Patient Information</a></li>
-               <li><a href="index.html">Contact Us</a></li>
-                                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="info.html">Patient Information</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
             </ul>
          </nav>
       </header>

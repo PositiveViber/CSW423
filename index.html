@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Dr. Smith's Chiropractic Practice</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
-    <script>
-        function toggleDarkMode() {
-            var darkMode = document.getElementById('dark-mode');
-            if (darkMode.getAttribute('href') == 'style.css') {
-                darkMode.href = 'darkmode.css';
-            } else {
-                darkMode.href = 'style.css';
-            }
-        }
+    <link rel="stylesheet" href="style.css" id="light-mode">
+      <script>
+    // Retrieve the mode from local storage (default to "light" if not set)
+    var mode = localStorage.getItem("mode") || "light";
+    var lightMode = document.getElementById("light-mode");
+    var darkMode = document.getElementById("dark-mode");
 
-    </script>
+    // Apply the selected mode to the page
+    if (mode === "light") {
+      lightMode.disabled = false;
+      darkMode.disabled = true;
+    } else {
+      lightMode.disabled = true;
+      darkMode.disabled = false;
+    }
+  </script>
 </head>
-
-
 <body>
     <header>
         <a href="index.html">
             <img src="spine.png" id="spine">
         </a>
-        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <h1 style = "margin-right: 300px">Dr. Smith's Chiropractic Practice</h1>
         <nav>
             <ul>
-                <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                <li><a onclick="toggleDarkMode()">Toggle Dark Mode</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="info.html">Patient Information</a></li>
@@ -39,34 +41,26 @@
 
     <main>
         <section id="hero">
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
+    <div class="hero-content">
+        <h2 style="text-align: center">Welcome to Dr. Smith's Chiropractic Practice</h2>
+    </div>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+    <div class="mySlides">
+        <div class="fade">
+            <img src="carousel1.jpg" style="width:100%">
+        </div>
+    </div>
 
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides">
-                    <div class="fade">
-                        <img src="carousel1.jpg" style="width:100%">
-                    </div>
+    <div class="mySlides fade">
+        <img src="carousel2.jpeg" style="width:100%">
+    </div>
 
-                    <div class="hero-content">
-                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-                    </div>
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="carousel2.jpeg" style="width:100%">
-                    <div class="hero-content">
-                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-                    </div>
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="carousel3.jpg" style="width:100%">
-                    <div class="hero-content">
-                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-                    </div>
-                </div>
-            </div>
+    <div class="mySlides fade">
+        <img src="carousel3.jpg" style="width:100%">
+    </div>
+</div>
         </section>
 
         <section id="about">
@@ -112,5 +106,19 @@
         slides[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
+function toggleDarkMode() {
+  var lightMode = document.getElementById("light-mode");
+  var darkMode = document.getElementById("dark-mode");
+
+  if (lightMode.disabled) {
+    lightMode.disabled = false;
+    darkMode.disabled = true;
+    localStorage.setItem("mode", "light");
+  } else {
+    lightMode.disabled = true;
+    darkMode.disabled = false;
+    localStorage.setItem("mode", "dark");
+  }
+}
 
 </script>
