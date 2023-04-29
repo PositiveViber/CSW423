@@ -5,11 +5,22 @@
     <title>Dr. Smith's Chiropractic Practice</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
+    <script>
+        function toggleDarkMode() {
+            var darkMode = document.getElementById('dark-mode');
+            if (darkMode.getAttribute('href') == 'style.css') {
+                darkMode.href = 'darkmode.css';
+            } else {
+                darkMode.href = 'style.css';
+            }
+        }
+
+    </script>
 </head>
-    
+
 
 <body>
-   <header>
+    <header>
         <a href="index.html">
             <img src="spine.png" id="spine">
         </a>
@@ -28,34 +39,34 @@
 
     <main>
         <section id="hero">
-           <!-- Slideshow container -->
-<div class="slideshow-container">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
 
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides">
-   <div class ="fade">    
-   <img src="carousel1.jpg" style="width:100%">
-   </div>
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides">
+                    <div class="fade">
+                        <img src="carousel1.jpg" style="width:100%">
+                    </div>
 
-  <div class="hero-content" style="position:absolute; left: 600px; top: 500px">
-    <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-  </div>
-  </div>
+                    <div class="hero-content">
+                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
+                    </div>
+                </div>
 
-  <div class="mySlides fade">
-    <img src="carousel2.jpeg" style="width:100%">
-      <div class="hero-content" style="position:absolute; left: 600px; top: 500px">
-    <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-  </div>
-  </div>
+                <div class="mySlides fade">
+                    <img src="carousel2.jpeg" style="width:100%">
+                    <div class="hero-content">
+                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
+                    </div>
+                </div>
 
-  <div class="mySlides fade">
-    <img src="carousel3.jpg" style="width:100%">
-      <div class="hero-content" style="position:absolute; left: 600px; top: 500px">
-    <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
-  </div>
-  </div>
-</div>
+                <div class="mySlides fade">
+                    <img src="carousel3.jpg" style="width:100%">
+                    <div class="hero-content">
+                        <h2>Welcome to Dr. Smith's Chiropractic Practice</h2>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="about">
@@ -85,30 +96,21 @@
 
 </html>
 <script>
-let slideIndex = 0;
-showSlides();
+    let slideIndex = 0;
+    showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-    function toggleDarkMode() {
-    var body = document.body;
-    body.classList.toggle('dark');
-
-    var darkModeLink = document.getElementById('dark-mode');
-    if (darkModeLink.href.includes('darkmode.css')) {
-        darkModeLink.href = 'style.css';
-    } else {
-        darkModeLink.href = 'darkmode.css';
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-}
 
 </script>
