@@ -4,172 +4,173 @@
     <title>Calendar</title>
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
     <link rel="stylesheet" href="style.css" id="light-mode">
-    </head>
-      <script>
-    // Retrieve the mode from local storage (default to "light" if not set)
-    var mode = localStorage.getItem("mode") || "light";
-    var lightMode = document.getElementById("light-mode");
-    var darkMode = document.getElementById("dark-mode");
+    <script>
+        // Retrieve the mode from local storage (default to "light" if not set)
+        var mode = localStorage.getItem("mode") || "light";
+        var lightMode = document.getElementById("light-mode");
+        var darkMode = document.getElementById("dark-mode");
 
-    // Apply the selected mode to the page
-    if (mode === "light") {
-      lightMode.disabled = false;
-      darkMode.disabled = true;
-    } else {
-      lightMode.disabled = true;
-      darkMode.disabled = false;
-    }
-  </script>
-    <header>
-    
-    
+        // Apply the selected mode to the page
+        if (mode === "light") {
+            lightMode.disabled = false;
+            darkMode.disabled = true;
+        } else {
+            lightMode.disabled = true;
+            darkMode.disabled = false;
+        }
+    </script>
+</head>
+<header>
+
+
     <a href="index.html">
         <img src="spine.png" id="spine">
     </a>
-        <h1>Dr. Smith's Chiropractic Practice</h1>
-        <nav>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="info.html">Patient Information</a></li>
-                <li><a href="index.html">Contact Us</a></li>
-                 <li><a href="shop.html">Shop</a></li>
-            </ul>
-        </nav>
-    </header>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .wrapper {
-            width: 450px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    <h1>Dr. Smith's Chiropractic Practice</h1>
+    <nav>
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="info.html">Patient Information</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+        </ul>
+    </nav>
+</header>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* modified css from W3Schools*/
+    .wrapper {
+        width: 450px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .wrapper header {
-            display: flex;
-            align-items: center;
-            padding: 25px 30px 10px;
-            justify-content: space-between;
-            width: 100%;
-        }
+    .wrapper header {
+        display: flex;
+        align-items: center;
+        padding: 25px 30px 10px;
+        justify-content: space-between;
+        width: 100%;
+    }
 
-        header .icons {
-            display: flex;
-        }
+    header .icons {
+        display: flex;
+    }
 
-        header .icons span {
-            height: 38px;
-            width: 38px;
-            margin: 0 1px;
-            cursor: pointer;
-            color: #878787;
-            text-align: center;
-            line-height: 38px;
-            font-size: 1.9rem;
-            user-select: none;
-            border-radius: 50%;
-            background-color: #f2f2f2;
-            transition: all 0.2s ease-in-out;
-        }
+    header .icons span {
+        height: 38px;
+        width: 38px;
+        margin: 0 1px;
+        cursor: pointer;
+        color: #878787;
+        text-align: center;
+        line-height: 38px;
+        font-size: 1.9rem;
+        user-select: none;
+        border-radius: 50%;
+        background-color: #f2f2f2;
+        transition: all 0.2s ease-in-out;
+    }
 
-        header .icons span:hover {
-            background-color: #d9d9d9;
-        }
+    header .icons span:hover {
+        background-color: #d9d9d9;
+    }
 
-        .left-arrow:before {
-            content: "\\2190";
-        }
+    .left-arrow:before {
+        content: "\\2190";
+    }
 
-        .right-arrow:before {
-            content: "\\2192";
-        }
+    .right-arrow:before {
+        content: "\\2192";
+    }
 
-        .calendar {
-            font-family: "Roboto";
-            padding: 20px;
-            margin-right:40px;
-        }
+    .calendar {
+        font-family: "Roboto";
+        padding: 20px;
+        margin-right: 40px;
+    }
 
-        .calendar ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            text-align: center;
-        }
+    .calendar ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        text-align: center;
+    }
 
-        .calendar .days {
-            margin-bottom: 20px;
-        }
+    .calendar .days {
+        margin-bottom: 20px;
+    }
 
-        .calendar li {
-            color: #333;
-            width: calc(100% / 7);
-            font-size: 1.07rem;
-        }
+    .calendar li {
+        color: #333;
+        width: calc(100% / 7);
+        font-size: 1.07rem;
+    }
 
-        .calendar .weeks li {
-            font-weight: 500;
-            cursor: default;
-        }
+    .calendar .weeks li {
+        font-weight: 500;
+        cursor: default;
+    }
 
-        .calendar .days li {
-            z-index: 1;
-            cursor: pointer;
-            position: relative;
-            margin-top: 30px;
-        }
+    .calendar .days li {
+        z-index: 1;
+        cursor: pointer;
+        position: relative;
+        margin-top: 30px;
+    }
 
-        .days li.inactive {
-            color: #aaa;
-        }
+    .days li.inactive {
+        color: #aaa;
+    }
 
-        .days li.active {
-            color: #fff;
-        }
+    .days li.active {
+        color: #fff;
+    }
 
-        .days li::before {
-            position: absolute;
-            content: "";
-            left: 50%;
-            top: 50%;
-            height: 40px;
-            width: 40px;
-            z-index: -1;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
+    .days li::before {
+        position: absolute;
+        content: "";
+        left: 50%;
+        top: 50%;
+        height: 40px;
+        width: 40px;
+        z-index: -1;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-        .days li.active::before {
-            background: #9B59B6;
-        }
+    .days li.active::before {
+        background: #9B59B6;
+    }
 
-        .days li:not(.active):hover::before {
-            background: #f2f2f2;
-        }
-        .material-symbols-rounded {
-   display: inline-block;
-   width: 40px;
-   height: 40px;
-   background-color: #333;
-   border-radius: 50%;
-   color: #fff;
-   text-align: center;
-   line-height: 40px;
-   font-size: 1.2rem;
-}
+    .days li:not(.active):hover::before {
+        background: #f2f2f2;
+    }
 
-    </style>
+    .material-symbols-rounded {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        font-size: 1.2rem;
+    }
+</style>
 
 
 <body>
-   
-   
-   <br><br>
+
+
+    <br><br>
     <div class="wrapper">
         <p class="current-date"></p>
         <div class="icons">
@@ -190,13 +191,14 @@
             <ul class="days"></ul>
         </div>
     </div>
-            <br><br>
+    <br><br>
     <footer>
         <p>&copy; 2023 Calendar</p>
     </footer>
 </body>
 
 <script>
+    /* FOUND ONLINE FROM  https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwim6762rdT-AhWoIEQIHVOuAL8QtwJ6BAgoEAI&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZ1BGAivZRlE&usg=AOvVaw2RtO4WEXc2A5F3hO6oCCBI */
     /*eslint-env es6*/
     /*eslint-env browser*/
     const daysTag = document.querySelector(".days");
@@ -238,9 +240,9 @@
         currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
         daysTag.innerHTML = liTag;
     }
- 
+
     renderCalendar();
-    
+
 
 
     prevNextIcon.forEach(icon => { // getting prev and next icons
@@ -259,10 +261,8 @@
             renderCalendar(); // calling renderCalendar function
         });
     });
-    
-        // function to handle click events on calendar days
-   
 
+    // function to handle click events on calendar days
 </script>
 
 </html>

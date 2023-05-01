@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Book Appointment - Dr. Smith's Chiropractic Practice</title>
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
     <link rel="stylesheet" href="style.css" id="light-mode">
-          <script>
-    // Retrieve the mode from local storage (default to "light" if not set)
-    var mode = localStorage.getItem("mode") || "light";
-    var lightMode = document.getElementById("light-mode");
-    var darkMode = document.getElementById("dark-mode");
+    <script>
+        // Retrieve the mode from local storage (default to "light" if not set)
+        var mode = localStorage.getItem("mode") || "light";
+        var lightMode = document.getElementById("light-mode");
+        var darkMode = document.getElementById("dark-mode");
 
-    // Apply the selected mode to the page
-    if (mode === "light") {
-      lightMode.disabled = false;
-      darkMode.disabled = true;
-    } else {
-      lightMode.disabled = true;
-      darkMode.disabled = false;
-    }
-  </script>
+        // Apply the selected mode to the page
+        if (mode === "light") {
+            lightMode.disabled = false;
+            darkMode.disabled = true;
+        } else {
+            lightMode.disabled = true;
+            darkMode.disabled = false;
+        }
+    </script>
     <style>
-      form {
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  width: 400px;
-}
+        form {
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            width: 400px;
+        }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
 
-label {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 10px;
-  display: block;
-}
+        label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: none;
-  background-color: #f2f2f2;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #f2f2f2;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
 
-input[type="submit"] {
-  background-color: #9B59B6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
+        input[type="submit"] {
+            background-color: #9B59B6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
 
-input[type="submit"]:hover {
-  background-color: #8e44ad;
-}
+        input[type="submit"]:hover {
+            background-color: #8e44ad;
+        }
 
-input[type="submit"]:active {
-  transform: translateY(2px);
-}
+        input[type="submit"]:active {
+            transform: translateY(2px);
+        }
 
-input[type="submit"] + a {
-  display: inline-block;
-  margin-left: 10px;
-  color: #555;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
+        input[type="submit"]+a {
+            display: inline-block;
+            margin-left: 10px;
+            color: #555;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
 
-input[type="submit"] + a:hover {
-  color: #000;
-}
-
+        input[type="submit"]+a:hover {
+            color: #000;
+        }
     </style>
 </head>
+
 <body>
     <header>
-    <a href="index.html">
-        <img src="spine.png" id="spine">
-    </a>
+        <a href="index.html">
+            <img src="spine.png" id="spine">
+        </a>
         <h1>Dr. Smith's Chiropractic Practice</h1>
         <nav>
             <ul>
@@ -109,7 +110,7 @@ input[type="submit"] + a:hover {
     <section id="book-appointment">
 
         <form>
-                   <h2>Book an Appointment</h2>
+            <h2>Book an Appointment</h2>
             <label for="appointment_date">Appointment Date:</label>
             <input type="date" id="appointment_date" name="appointment_date" required>
             <br>
@@ -123,6 +124,7 @@ input[type="submit"] + a:hover {
         <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
     </footer>
 </body>
+
 </html>
 
 

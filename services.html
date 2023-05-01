@@ -1,31 +1,33 @@
 <html>
-   <head>
-      <title>Dr. Smith's Chiropractic Practice - Services</title>
+
+<head>
+    <title>Dr. Smith's Chiropractic Practice - Services</title>
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
     <link rel="stylesheet" href="style.css" id="light-mode">
-      <script>
-    // Retrieve the mode from local storage (default to "light" if not set)
-    var mode = localStorage.getItem("mode") || "light";
-    var lightMode = document.getElementById("light-mode");
-    var darkMode = document.getElementById("dark-mode");
+    <script>
+        // Retrieve the mode from local storage (default to "light" if not set)
+        var mode = localStorage.getItem("mode") || "light";
+        var lightMode = document.getElementById("light-mode");
+        var darkMode = document.getElementById("dark-mode");
 
-    // Apply the selected mode to the page
-    if (mode === "light") {
-      lightMode.disabled = false;
-      darkMode.disabled = true;
-    } else {
-      lightMode.disabled = true;
-      darkMode.disabled = false;
-    }
-  </script>
-   </head>
-   <body>
-      <header>
-            <a href="index.html">
-        <img src="spine.png" id="spine">
-    </a>
-         <h1>Dr. Smith's Chiropractic Practice</h1>
-         <nav>
+        // Apply the selected mode to the page
+        if (mode === "light") {
+            lightMode.disabled = false;
+            darkMode.disabled = true;
+        } else {
+            lightMode.disabled = true;
+            darkMode.disabled = false;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="spine.png" id="spine">
+        </a>
+        <h1>Dr. Smith's Chiropractic Practice</h1>
+        <nav>
             <ul>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -33,28 +35,29 @@
                 <li><a href="index.html">Contact Us</a></li>
                 <li><a href="shop.html">Shop</a></li>
             </ul>
-         </nav>
-      </header>
-      <main>
-         <section id="hero">
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
             <h2>Services Offered</h2>
-         </section>
-         <section id="services">
+        </section>
+        <section id="services">
             <h3>Chiropractic Services</h3>
             <p>We offer a range of chiropractic services to treat a variety of conditions, including:</p>
             <ul>
-               <li>Spinal Adjustments</li>
-               <li>Soft Tissue Therapy</li>
-               <li>Electrical Muscle Stimulation</li>
-               <li>Ultrasound Therapy</li>
-               <li>And more!</li>
+                <li>Spinal Adjustments</li>
+                <li>Soft Tissue Therapy</li>
+                <li>Electrical Muscle Stimulation</li>
+                <li>Ultrasound Therapy</li>
+                <li>And more!</li>
             </ul>
             <p>Our services are designed to help you achieve optimal health and wellness. Contact us to schedule an appointment today!</p>
             <a href="exercises.html">View Our Exercise Library</a>
-         </section>
-      </main>
-      <footer>
-         <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
-      </footer>
-   </body>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Dr. Smith's Chiropractic Practice</p>
+    </footer>
+</body>
+
 </html>

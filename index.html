@@ -5,28 +5,29 @@
     <title>Dr. Smith's Chiropractic Practice</title>
     <link rel="stylesheet" href="darkmode.css" id="dark-mode">
     <link rel="stylesheet" href="style.css" id="light-mode">
-      <script>
-    // Retrieve the mode from local storage (default to "light" if not set)
-    var mode = localStorage.getItem("mode") || "light";
-    var lightMode = document.getElementById("light-mode");
-    var darkMode = document.getElementById("dark-mode");
+    <script>
+        // Retrieve the mode from local storage (default to "light" if not set)
+        var mode = localStorage.getItem("mode") || "light";
+        var lightMode = document.getElementById("light-mode");
+        var darkMode = document.getElementById("dark-mode");
 
-    // Apply the selected mode to the page
-    if (mode === "light") {
-      lightMode.disabled = false;
-      darkMode.disabled = true;
-    } else {
-      lightMode.disabled = true;
-      darkMode.disabled = false;
-    }
-  </script>
+        // Apply the selected mode to the page
+        if (mode === "light") {
+            lightMode.disabled = false;
+            darkMode.disabled = true;
+        } else {
+            lightMode.disabled = true;
+            darkMode.disabled = false;
+        }
+    </script>
 </head>
+
 <body>
     <header>
         <a href="index.html">
             <img src="spine.png" id="spine">
         </a>
-        <h1 style = "margin-right: 300px">Dr. Smith's Chiropractic Practice</h1>
+        <h1 style="margin-right: 300px">Dr. Smith's Chiropractic Practice</h1>
         <nav>
             <ul>
                 <li><a onclick="toggleDarkMode()">Toggle Dark Mode</a></li>
@@ -41,26 +42,24 @@
 
     <main>
         <section id="hero">
-    <div class="hero-content">
-        <h2 style="text-align: center">Welcome to Dr. Smith's Chiropractic Practice</h2>
-    </div>
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-    <div class="mySlides">
-        <div class="fade">
-            <img src="carousel1.jpg" style="width:100%">
-        </div>
-    </div>
+            <div class="hero-content">
+                <h2 style="text-align: center">Welcome to Dr. Smith's Chiropractic Practice</h2>
+            </div>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <div class="fade">
+                        <img src="carousel1.jpg" style="width:100%">
+                    </div>
+                </div>
 
-    <div class="mySlides fade">
-        <img src="carousel2.jpeg" style="width:100%">
-    </div>
+                <div class="mySlides fade">
+                    <img src="carousel2.jpeg" style="width:100%">
+                </div>
 
-    <div class="mySlides fade">
-        <img src="carousel3.jpg" style="width:100%">
-    </div>
-</div>
+                <div class="mySlides fade">
+                    <img src="carousel3.jpg" style="width:100%">
+                </div>
+            </div>
         </section>
 
         <section id="about">
@@ -90,6 +89,7 @@
 
 </html>
 <script>
+    //CSS FROM SLIDESHOW W3SCHOOLS
     let slideIndex = 0;
     showSlides();
 
@@ -104,21 +104,22 @@
             slideIndex = 1
         }
         slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        setTimeout(showSlides, 2000);
     }
-function toggleDarkMode() {
-  var lightMode = document.getElementById("light-mode");
-  var darkMode = document.getElementById("dark-mode");
 
-  if (lightMode.disabled) {
-    lightMode.disabled = false;
-    darkMode.disabled = true;
-    localStorage.setItem("mode", "light");
-  } else {
-    lightMode.disabled = true;
-    darkMode.disabled = false;
-    localStorage.setItem("mode", "dark");
-  }
-}
+    function toggleDarkMode() {
+        //Functional Dark mode JS
+        var lightMode = document.getElementById("light-mode");
+        var darkMode = document.getElementById("dark-mode");
 
+        if (lightMode.disabled) {
+            lightMode.disabled = false;
+            darkMode.disabled = true;
+            localStorage.setItem("mode", "light");
+        } else {
+            lightMode.disabled = true;
+            darkMode.disabled = false;
+            localStorage.setItem("mode", "dark");
+        }
+    }
 </script>
